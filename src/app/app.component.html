@@ -1,0 +1,42 @@
+<h2>Dynamic Form</h2>
+
+<p>Some examples here</p>
+
+<h3>Dynamic Form With Material components</h3>
+
+<div class="wrapper">
+  <ngx-dynamic-form [config]="materialConfig"
+                    [value]="materialValue"
+                    [componentMap]="materialComponentMap"
+                    (statusChanges)="onMaterialChanges($event)"
+                    (valueChanges)="onMaterialValueChanges($event)"
+                    class="material-form">
+
+    <h3 class="before-form">Material form is below</h3>
+
+    <div class="form-header">
+      Form header
+    </div>
+
+    <div class="form-footer">
+      <p>
+        Form footer. Buttons should go here usually.
+      </p>
+
+      <p>
+        <button mat-stroked-button color="primary">OK!</button>
+      </p>
+    </div>
+
+    <div class="after-form">
+      After the form
+    </div>
+
+  </ngx-dynamic-form>
+
+  <div class="results">
+    <p>Result</p>
+    <pre>{{ materialStatus }}</pre>
+    <pre>{{ materialFormValue | json }}</pre>
+  </div>
+</div>

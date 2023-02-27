@@ -3,7 +3,7 @@
 **MatSelectModule import in AppModule!**
 
 This is a set of wrappers for Material input components for
-[Ngx Dynamic Form](https://github.com/elementalconcept/ngx-dynamic-form/) library. Angular
+[Dynamic Form](https://bitbucket.org/elementalconcept/ec-fe-components/src/dev/projects/dynamic-form/) library. Angular
 v11+ and Material For Angular v11+ is required. Provided input types are:
 
 * `string`
@@ -54,7 +54,7 @@ export class AppModule {
 ```typescript
 // form-page.module.ts
 import { NgxDynamicFormModule } from '@elemental-concept/ngx-dynamic-form';
-import { NgxDynamicFormMaterialModule } from '@elemental-concept/ngxdynamic-form-material';
+import { NgxDynamicFormMaterialModule } from '@elemental-concept/ngx-dynamic-form-material';
 
 @NgModule({
   imports: [
