@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 
-import { DynamicFormDescriptionControl, DynamicFormElement } from '@elemental-concept/ngx-dynamic-form';
+import { DynamicFormDescriptionControl, DynamicFormElement } from '@elemental-concept/dynamic-form';
 
 import { MaterialInputMeta } from '../../types';
 
 @Component({
-  selector: 'ngx-df-description',
+  selector: 'df-description',
   templateUrl: './description.component.html',
-  styleUrls: [ './description.component.scss' ]
+  styleUrls: ['./description.component.scss']
 })
 export class DescriptionComponent implements DynamicFormDescriptionControl<MaterialInputMeta> {
   readonly type = 'description';

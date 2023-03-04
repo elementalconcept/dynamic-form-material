@@ -5,12 +5,12 @@
 <h3>Dynamic Form With Material components</h3>
 
 <div class="wrapper">
-  <ngx-dynamic-form [config]="materialConfig"
-                    [value]="materialValue"
-                    [componentMap]="materialComponentMap"
-                    (statusChanges)="onMaterialChanges($event)"
-                    (valueChanges)="onMaterialValueChanges($event)"
-                    class="material-form">
+  <dynamic-form [config]="materialConfig"
+                [value]="materialValue"
+                [componentMap]="materialComponentMap"
+                (statusChanges)="onMaterialChanges($event)"
+                (valueChanges)="onMaterialValueChanges($event)"
+                class="material-form">
 
     <h3 class="before-form">Material form is below</h3>
 
@@ -32,7 +32,7 @@
       After the form
     </div>
 
-  </ngx-dynamic-form>
+  </dynamic-form>
 
   <div class="results">
     <p>Result</p>

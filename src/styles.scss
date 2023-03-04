@@ -9,7 +9,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-ngx-dynamic-form {
+dynamic-form {
   &.material-form {
     display: flex;
     flex-direction: column;
@@ -21,4 +21,12 @@ ngx-dynamic-form {
       justify-content: center;
     }
   }
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent;
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent;
 }
