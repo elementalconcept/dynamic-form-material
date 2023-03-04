@@ -6,7 +6,7 @@ import { DynamicFormDescriptionControl, DynamicFormElement } from '@elemental-co
 import { MaterialInputMeta } from '../../types';
 
 @Component({
-  selector: 'ngx-df-description',
+  selector: 'df-description',
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.scss']
 })

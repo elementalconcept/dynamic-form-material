@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { CommonInputDirective } from '../../directives';
 
 @Component({
-  selector: 'ngx-df-checkbox-input',
+  selector: 'df-checkbox-input',
   templateUrl: './checkbox-input.component.html',
   styleUrls: ['./checkbox-input.component.scss']
 })

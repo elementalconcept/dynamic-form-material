@@ -1,8 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxDynamicFormModule } from '@elemental-concept/dynamic-form';
-import { NgxDynamicFormMaterialModule } from '@elemental-concept/dynamic-form-material';
+import { DynamicFormModule } from '@elemental-concept/dynamic-form';
+import { DynamicFormMaterialModule } from '@elemental-concept/dynamic-form-material';
 
 import { AppComponent } from './app.component';
 
@@ -13,7 +13,7 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [NgxDynamicFormModule, NgxDynamicFormMaterialModule],
+      imports: [DynamicFormModule, DynamicFormMaterialModule],
       schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
