@@ -5,7 +5,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 import { map, startWith } from 'rxjs/operators';
 
-import { DynamicFormElement, DynamicFormPassThroughControl } from '@elemental-concept/ngx-dynamic-form';
+import { DynamicFormElement, DynamicFormPassThroughControl } from '@elemental-concept/dynamic-form';
 
 import { inputModeMap, MaterialInputMeta } from '../../types';
 
@@ -33,9 +33,12 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
       .pipe(
         startWith(control.status),
         untilDestroyed(this),
-        map(status => status === 'INVALID' && !control.pristine
-          ? Object.keys(control.errors ?? [])
-          : []))
+        map(status =>
+          status === 'INVALID' && !control.pristine
+            ? Object.keys(control.errors ?? [])
+            : []
+        )
+      )
       .subscribe(errors => this.errors = errors);
   }
 
@@ -47,13 +50,14 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
     }
 
     if (this.config.type in inputModeMap) {
-      this.inputMode = inputModeMap[ this.config.type ];
+      this.inputMode = inputModeMap[this.config.type];
     }
 
     this.inputType = this.config.type === 'password' ? 'password' : 'text';
 
     this.required = element.validators instanceof Array
-      ? element.validators.find(validator => validator.type === 'required' || validator.type === 'requiredTrue') !== undefined
+      ? element.validators.find(validator => validator.type === 'required' || validator.type === 'requiredTrue')
+        !== undefined
       : false;
   }
 

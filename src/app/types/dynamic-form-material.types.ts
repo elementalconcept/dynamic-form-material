@@ -1,6 +1,6 @@
-import { DynamicFormConfig } from '@elemental-concept/ngx-dynamic-form';
+import { DynamicFormConfig } from '@elemental-concept/dynamic-form';
 
-import { MaterialInputMeta } from '@elemental-concept/ngx-dynamic-form-material';
+import { MaterialInputMeta } from '@elemental-concept/dynamic-form-material';
 
 export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
   elements: [
@@ -8,7 +8,7 @@ export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
       id: 'title',
       label: 'This is a string input',
       type: 'string',
-      validators: [ { type: 'required' } ],
+      validators: [{ type: 'required' }],
       errors: { required: 'Title is required' }
     },
     {
@@ -20,14 +20,14 @@ export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
       id: 'number',
       label: 'This is a number input',
       type: 'number',
-      validators: [ { type: 'pattern', pattern: '^-?\\d*(\\.\\d+)?$' } ],
+      validators: [{ type: 'pattern', pattern: '^-?\\d*(\\.\\d+)?$' }],
       errors: { pattern: 'Not a valid number' }
     },
     {
       id: 'email',
       label: 'This is a email input',
       type: 'email',
-      validators: [ { type: 'email' } ],
+      validators: [{ type: 'email' }],
       errors: { email: 'Not a valid email' }
     },
     {
@@ -118,7 +118,7 @@ export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
         },
         hideRequiredMarker: true
       },
-      validators: [ { type: 'requiredTrue' } ],
+      validators: [{ type: 'requiredTrue' }],
       errors: { required: 'This flag is required' }
     },
     {
@@ -152,7 +152,7 @@ export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
       id: 'select1',
       label: 'Type',
       type: 'select',
-      validators: [ { type: 'required' } ],
+      validators: [{ type: 'required' }],
       options: [
         { value: '1', label: 'Normal' },
         { value: '2', label: 'VIP' },

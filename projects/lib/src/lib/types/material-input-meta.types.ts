@@ -1,5 +1,5 @@
-import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 import { ThemePalette } from '@angular/material/core';
+import { FloatLabelType, MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { SuffixType } from '../types';
 

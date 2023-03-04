@@ -6,4 +6,4 @@ export * from './lib/types';
 
 export * from './lib/material-component-map';
 
-export * from './lib/ngx-dynamic-form-material.module';
+export * from './lib/dynamic-form-material.module';

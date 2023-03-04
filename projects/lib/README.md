@@ -3,28 +3,28 @@
 **MatSelectModule import in AppModule!**
 
 This is a set of wrappers for Material input components for
-[Dynamic Form](https://bitbucket.org/elementalconcept/ec-fe-components/src/dev/projects/dynamic-form/) library. Angular
+[Dynamic Form](https://github.com/elementalconcept/dynamic-form/) library. Angular
 v11+ and Material For Angular v11+ is required. Provided input types are:
 
-* `string`
-* `number`
-* `email`
-* `tel`
-* `url`
-* `password`
-* `select`
-* `multiselect`
-* `text`
-* `checkbox`
-* `radio`
-* `_description_`
+- `string`
+- `number`
+- `email`
+- `tel`
+- `url`
+- `password`
+- `select`
+- `multiselect`
+- `text`
+- `checkbox`
+- `radio`
+- `_description_`
 
 ## Installation
 
 Install the library through NPM:
 
 ```shell
-$ npm i @elemental-concept/ngx-dynamic-form-material
+$ npm i @elemental-concept/dynamic-form-material
 ```
 
 Add `MatSelectModule` import and provider `DYNAMIC_FORM_COMPONENT_MAP` to your `AppModule`, then
@@ -34,8 +34,8 @@ add `DynamicFormMaterialModule` to your page modules.
 // app.module.ts
 import { NgModule } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
-import { DYNAMIC_FORM_COMPONENT_MAP } from '@elemental-concept/ngx-dynamic-form';
-import { materialComponentMap } from '@elemental-concept/ngx-dynamic-form-material';
+import { DYNAMIC_FORM_COMPONENT_MAP } from '@elemental-concept/dynamic-form';
+import { materialComponentMap } from '@elemental-concept/dynamic-form-material';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -45,7 +45,7 @@ import { AppComponent } from './app.component';
   providers: [
     { provide: DYNAMIC_FORM_COMPONENT_MAP, useValue: materialComponentMap }
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }
@@ -53,13 +53,13 @@ export class AppModule {
 
 ```typescript
 // form-page.module.ts
-import { NgxDynamicFormModule } from '@elemental-concept/ngx-dynamic-form';
-import { NgxDynamicFormMaterialModule } from '@elemental-concept/ngx-dynamic-form-material';
+import { DynamicFormModule } from '@elemental-concept/dynamic-form';
+import { DynamicFormMaterialModule } from '@elemental-concept/dynamic-form-material';
 
 @NgModule({
   imports: [
-    NgxDynamicFormModule,
-    NgxDynamicFormMaterialModule
+    DynamicFormModule,
+    DynamicFormMaterialModule
   ]
 })
 class FormPageModule {

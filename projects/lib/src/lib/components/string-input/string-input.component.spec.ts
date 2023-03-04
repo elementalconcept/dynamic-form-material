@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxDynamicFormModule } from '@elemental-concept/ngx-dynamic-form';
+import { NgxDynamicFormModule } from '@elemental-concept/dynamic-form';
 
 import { StringInputComponent } from './string-input.component';
 
@@ -11,11 +11,11 @@ describe('StringInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StringInputComponent ],
+      declarations: [StringInputComponent],
       imports: [
         NgxDynamicFormModule
       ],
-      schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   });
@@ -26,7 +26,7 @@ describe('StringInputComponent', () => {
     component.config = {
       id: 'string',
       label: 'string',
-      type: 'string',
+      type: 'string'
     };
     fixture.detectChanges();
   });
