@@ -1,4 +1,5 @@
 export * from './checkbox-input/checkbox-input.component';
+export * from './datepicker-input/datepicker-input.component';
 export * from './description/description.component';
 export * from './multi-select-input/multi-select-input.component';
 export * from './radio-input/radio-input.component';
