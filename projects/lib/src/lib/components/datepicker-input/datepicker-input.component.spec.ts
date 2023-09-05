@@ -24,9 +24,9 @@ describe('RadioInputComponent', () => {
     fixture = TestBed.createComponent(DatepickerInputComponent);
     component = fixture.componentInstance;
     component.config = {
-      id: 'radio',
-      label: 'radio',
-      type: 'radio'
+      id: 'simpleDatepicker',
+      type: 'simpleDatepicker',
+      label: 'simpleDatepicker',
     };
 
     fixture.detectChanges();
