@@ -16,8 +16,6 @@ import { DynamicFormMaterialModule, materialComponentMap } from '@elemental-conc
 
 import { AppComponent } from './app.component';
 
-import { StringInputComponent } from './components';
-
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
@@ -25,8 +23,6 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 @NgModule({
   declarations: [
     AppComponent,
-
-    StringInputComponent
   ],
   imports: [
     BrowserModule,
