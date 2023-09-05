@@ -7,7 +7,7 @@ This is a set of wrappers for Material input components for
 v11+ and Material For Angular v11+ is required. Provided input types are:
 
 - `checkbox`
-- `datepicker`
+- `simpleDatepicker`
 - `email`
 - `multiselect`
 - `number`
