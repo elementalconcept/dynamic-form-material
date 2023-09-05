@@ -4,7 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatOptionModule } from '@angular/material/core';
+import { MatOptionModule, NativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -13,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 import {
   CheckboxInputComponent,
+  DatepickerInputComponent,
   DescriptionComponent,
   MultiSelectInputComponent,
   RadioInputComponent,
@@ -24,6 +26,7 @@ import {
 @NgModule({
   declarations: [
     CheckboxInputComponent,
+    DatepickerInputComponent,
     DescriptionComponent,
     MultiSelectInputComponent,
     RadioInputComponent,
@@ -33,6 +36,7 @@ import {
   ],
   exports: [
     CheckboxInputComponent,
+    DatepickerInputComponent,
     DescriptionComponent,
     MultiSelectInputComponent,
     RadioInputComponent,
@@ -43,12 +47,15 @@ import {
   imports: [
     MatButtonModule,
     MatCheckboxModule,
+    MatDatepickerModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
     MatOptionModule,
+
+    NativeDateModule,
 
     ReactiveFormsModule,
     CommonModule

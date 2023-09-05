@@ -6,17 +6,18 @@ This is a set of wrappers for Material input components for
 [Dynamic Form](https://github.com/elementalconcept/dynamic-form/) library. Angular
 v11+ and Material For Angular v11+ is required. Provided input types are:
 
-- `string`
-- `number`
-- `email`
-- `tel`
-- `url`
-- `password`
-- `select`
-- `multiselect`
-- `text`
 - `checkbox`
+- `simpleDatepicker`
+- `email`
+- `multiselect`
+- `number`
+- `password`
 - `radio`
+- `select`
+- `string`
+- `tel`
+- `text`
+- `url`
 - `_description_`
 
 ## Installation
@@ -32,12 +33,6 @@ add `DynamicFormMaterialModule` to your page modules.
 
 ```typescript
 // app.module.ts
-import { NgModule } from '@angular/core';
-import { MatSelectModule } from '@angular/material/select';
-import { DYNAMIC_FORM_COMPONENT_MAP } from '@elemental-concept/dynamic-form';
-import { materialComponentMap } from '@elemental-concept/dynamic-form-material';
-import { AppComponent } from './app.component';
-
 @NgModule({
   imports: [
     MatSelectModule
@@ -53,9 +48,6 @@ export class AppModule {
 
 ```typescript
 // form-page.module.ts
-import { DynamicFormModule } from '@elemental-concept/dynamic-form';
-import { DynamicFormMaterialModule } from '@elemental-concept/dynamic-form-material';
-
 @NgModule({
   imports: [
     DynamicFormModule,
@@ -63,6 +55,38 @@ import { DynamicFormMaterialModule } from '@elemental-concept/dynamic-form-mater
   ]
 })
 class FormPageModule {
+}
+```
+
+If you are planning to use datepickers, then you'll need to add more configs into the providers
+
+```typescript
+@NgModule({
+  imports: [
+    MatSelectModule
+  ],
+  providers: [
+    ...
+
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+
+    {
+      provide: MAT_DATE_FORMATS, useValue: {
+        parse: {
+          dateInput: [ 'l', 'LL' ]
+        },
+        display: {
+          dateInput: 'L',
+          monthYearLabel: 'MMM YYYY',
+          dateA11yLabel: 'LL',
+          monthYearA11yLabel: 'MMMM YYYY'
+        }
+      }
+    }
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
 }
 ```
 

@@ -4,6 +4,7 @@ import { MaterialInputMeta } from './types';
 
 import {
   CheckboxInputComponent,
+  DatepickerInputComponent,
   DescriptionComponent,
   MultiSelectInputComponent,
   RadioInputComponent,
@@ -24,5 +25,6 @@ export const materialComponentMap: DynamicFormComponentMap<MaterialInputMeta> = 
   text: TextInputComponent,
   checkbox: CheckboxInputComponent,
   radio: RadioInputComponent,
+  simpleDatepicker: DatepickerInputComponent,
   _description_: DescriptionComponent
 };

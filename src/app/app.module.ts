@@ -15,8 +15,7 @@ import { DYNAMIC_FORM_COMPONENT_MAP, DynamicFormModule } from '@elemental-concep
 import { DynamicFormMaterialModule, materialComponentMap } from '@elemental-concept/dynamic-form-material';
 
 import { AppComponent } from './app.component';
-
-import { StringInputComponent } from './components';
+import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -25,8 +24,6 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 @NgModule({
   declarations: [
     AppComponent,
-
-    StringInputComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +48,23 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     // Dynamic Form mapping object using Dynamic Form Material map
     { provide: DYNAMIC_FORM_COMPONENT_MAP, useValue: materialComponentMap },
 
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }
+    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+
+    {
+      provide: MAT_DATE_FORMATS, useValue: {
+        parse: {
+          dateInput: [ 'l', 'LL' ]
+        },
+        display: {
+          dateInput: 'L',
+          monthYearLabel: 'MMM YYYY',
+          dateA11yLabel: 'LL',
+          monthYearA11yLabel: 'MMMM YYYY'
+        }
+      }
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -12,6 +12,14 @@ export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
       errors: { required: 'Title is required' }
     },
     {
+      id: 'datepicker',
+      type: 'simpleDatepicker',
+      label: 'Date',
+      meta: {
+        color: 'primary'
+      },
+    },
+    {
       id: 'body',
       label: 'This is a text area',
       type: 'text'
