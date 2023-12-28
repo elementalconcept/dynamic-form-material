@@ -4,7 +4,7 @@
 
 This is a set of wrappers for Material input components for
 [Dynamic Form](https://github.com/elementalconcept/dynamic-form/) library. Angular
-v11+ and Material For Angular v11+ is required. Provided input types are:
+v13+ and Material For Angular v13+ is required. Provided input types are:
 
 - `string`
 - `number`
