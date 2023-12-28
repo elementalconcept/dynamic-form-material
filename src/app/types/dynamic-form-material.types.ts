@@ -28,7 +28,7 @@ export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
       id: 'number',
       label: 'This is a number input',
       type: 'number',
-      validators: [ { type: 'pattern', pattern: '^-?\\d*(\\.\\d+)?$' } ],
+      validators: [ { type: 'pattern', pattern: '^-?\\d*(\\.\\d+)?$', errorCode: '' } ],
       errors: { pattern: 'Not a valid number' }
     },
     {
@@ -58,11 +58,11 @@ export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
         {
           type: 'patternList',
           patterns: [
-            { type: 'pattern', pattern: '[0-9]', errorLabel: 'hasNumber' },
-            { type: 'pattern', pattern: '[A-Z]', errorLabel: 'hasUpperCase' },
-            { type: 'pattern', pattern: '[a-z]', errorLabel: 'hasLowerCase' },
-            { type: 'pattern', pattern: '[!@#&():;\',?*~`$^+=<>._%-]', errorLabel: 'hasSpecialCharacters' },
-            { type: 'pattern', pattern: '^\\S*$', errorLabel: 'noWhitespace' }
+            { type: 'pattern', pattern: '[0-9]', errorCode: 'hasNumber' },
+            { type: 'pattern', pattern: '[A-Z]', errorCode: 'hasUpperCase' },
+            { type: 'pattern', pattern: '[a-z]', errorCode: 'hasLowerCase' },
+            { type: 'pattern', pattern: '[!@#&():;\',?*~`$^+=<>._%-]', errorCode: 'hasSpecialCharacters' },
+            { type: 'pattern', pattern: '^\\S*$', errorCode: 'noWhitespace' }
           ]
         }
       ],
@@ -87,11 +87,11 @@ export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
         {
           type: 'patternList',
           patterns: [
-            { type: 'pattern', pattern: '[0-9]', errorLabel: 'hasNumber' },
-            { type: 'pattern', pattern: '[A-Z]', errorLabel: 'hasUpperCase' },
-            { type: 'pattern', pattern: '[a-z]', errorLabel: 'hasLowerCase' },
-            { type: 'pattern', pattern: '[!@#&():;\',?*~`$^+=<>._%-]', errorLabel: 'hasSpecialCharacters' },
-            { type: 'pattern', pattern: '^\\S*$', errorLabel: 'noWhitespace' }
+            { type: 'pattern', pattern: '[0-9]', errorCode: 'hasNumber' },
+            { type: 'pattern', pattern: '[A-Z]', errorCode: 'hasUpperCase' },
+            { type: 'pattern', pattern: '[a-z]', errorCode: 'hasLowerCase' },
+            { type: 'pattern', pattern: '[!@#&():;\',?*~`$^+=<>._%-]', errorCode: 'hasSpecialCharacters' },
+            { type: 'pattern', pattern: '^\\S*$', errorCode: 'noWhitespace' }
           ]
         }
       ],

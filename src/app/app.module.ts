@@ -11,7 +11,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { DYNAMIC_FORM_COMPONENT_MAP, DynamicFormModule } from '@elemental-concept/dynamic-form';
+import { DYNAMIC_FORM_COMPONENT_MAP, DynamicFormComponent } from '@elemental-concept/dynamic-form';
 import { DynamicFormMaterialModule, materialComponentMap } from '@elemental-concept/dynamic-form-material';
 
 import { AppComponent } from './app.component';
@@ -34,15 +34,15 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        deps: [HttpClient],
+        deps: [ HttpClient ],
         useFactory: httpLoaderFactory
       }
     }),
 
-    DynamicFormModule,
     DynamicFormMaterialModule,
 
-    MatButtonModule
+    MatButtonModule,
+    DynamicFormComponent
   ],
   providers: [
     // Dynamic Form mapping object using Dynamic Form Material map
