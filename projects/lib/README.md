@@ -4,7 +4,7 @@
 
 This is a set of wrappers for Material input components for
 [Dynamic Form](https://github.com/elementalconcept/dynamic-form/) library. Angular
-v11+ and Material For Angular v11+ is required. Provided input types are:
+v13+ and Material For Angular v13+ is required. Provided input types are:
 
 - `string`
 - `number`
@@ -17,6 +17,7 @@ v11+ and Material For Angular v11+ is required. Provided input types are:
 - `text`
 - `checkbox`
 - `radio`
+- `simpleDatepicker`
 - `_description_`
 
 ## Installation
@@ -63,6 +64,38 @@ import { DynamicFormMaterialModule } from '@elemental-concept/dynamic-form-mater
   ]
 })
 class FormPageModule {
+}
+```
+
+If you are planning to use datepickers, then you'll need to add more configs into the providers
+
+```typescript
+@NgModule({
+  imports: [
+    MatSelectModule
+  ],
+  providers: [
+    ...
+
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+
+    {
+      provide: MAT_DATE_FORMATS, useValue: {
+        parse: {
+          dateInput: [ 'l', 'LL' ]
+        },
+        display: {
+          dateInput: 'L',
+          monthYearLabel: 'MMM YYYY',
+          dateA11yLabel: 'LL',
+          monthYearA11yLabel: 'MMMM YYYY'
+        }
+      }
+    }
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
 }
 ```
 

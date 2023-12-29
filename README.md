@@ -4,20 +4,20 @@
 
 This is a set of wrappers for Material input components for
 [Dynamic Form](https://github.com/elementalconcept/dynamic-form/) library. Angular
-v11+ and Material For Angular v11+ is required. Provided input types are:
+v13+ and Material For Angular v13+ is required. Provided input types are:
 
-- `checkbox`
-- `simpleDatepicker`
-- `email`
-- `multiselect`
-- `number`
-- `password`
-- `radio`
-- `select`
 - `string`
+- `number`
+- `email`
 - `tel`
-- `text`
 - `url`
+- `password`
+- `select`
+- `multiselect`
+- `text`
+- `checkbox`
+- `radio`
+- `simpleDatepicker`
 - `_description_`
 
 ## Installation
@@ -33,6 +33,12 @@ add `DynamicFormMaterialModule` to your page modules.
 
 ```typescript
 // app.module.ts
+import { NgModule } from '@angular/core';
+import { MatSelectModule } from '@angular/material/select';
+import { DYNAMIC_FORM_COMPONENT_MAP } from '@elemental-concept/dynamic-form';
+import { materialComponentMap } from '@elemental-concept/dynamic-form-material';
+import { AppComponent } from './app.component';
+
 @NgModule({
   imports: [
     MatSelectModule
@@ -48,6 +54,9 @@ export class AppModule {
 
 ```typescript
 // form-page.module.ts
+import { DynamicFormModule } from '@elemental-concept/dynamic-form';
+import { DynamicFormMaterialModule } from '@elemental-concept/dynamic-form-material';
+
 @NgModule({
   imports: [
     DynamicFormModule,
