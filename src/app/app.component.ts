@@ -17,7 +17,9 @@ export class AppComponent {
   materialStatus: string;
   materialFormValue = {};
 
-  onMaterialChanges = (data: DynamicFormComponentStatus<any>) => this.materialStatus = data.status;
+  onMaterialChanges = (data: DynamicFormComponentStatus<any>) =>
+    this.materialStatus = data.status;
 
-  onMaterialValueChanges = (data: DynamicFormComponentValue<any>) => this.materialFormValue = data.value;
+  onMaterialValueChanges = (data: DynamicFormComponentValue<any>) =>
+    this.materialFormValue = data.value;
 }
