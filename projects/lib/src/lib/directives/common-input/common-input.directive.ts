@@ -28,6 +28,8 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
 
   errors: string[] = [];
 
+  textTransformer?: (message: string) => string;
+
   set formControl(control: AbstractControl) {
     control.statusChanges
       .pipe(
@@ -64,4 +66,11 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
   showControl = () => this.visible = true;
 
   hideControl = () => this.visible = false;
+
+  transform = (key: string | undefined): string =>
+    key === undefined
+      ? ''
+      : this.textTransformer === undefined
+        ? key
+        : this.textTransformer(key);
 }

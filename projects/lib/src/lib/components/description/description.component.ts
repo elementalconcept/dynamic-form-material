@@ -19,7 +19,16 @@ export class DescriptionComponent implements DynamicFormDescriptionControl<Mater
 
   visible = true;
 
+  textTransformer?: (message: string) => string;
+
   showControl = () => this.visible = true;
 
   hideControl = () => this.visible = false;
+
+  transform = (key: string | undefined): string =>
+    key === undefined
+      ? ''
+      : this.textTransformer === undefined
+        ? key
+        : this.textTransformer(key);
 }
