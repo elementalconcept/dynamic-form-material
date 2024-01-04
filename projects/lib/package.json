@@ -22,7 +22,7 @@
     "@angular/common": ">= 13 < 17",
     "@angular/core": ">= 13 < 17",
     "@ngneat/until-destroy": "^9.2.3",
-    "@elemental-concept/dynamic-form": "^17.0.0"
+    "@elemental-concept/dynamic-form": "^16.1.1"
   },
   "dependencies": {
     "tslib": "^2.3.0"
