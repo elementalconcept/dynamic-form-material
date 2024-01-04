@@ -3,6 +3,8 @@ import { AbstractControl } from '@angular/forms';
 
 import { DynamicFormDescriptionControl, DynamicFormElement } from '@elemental-concept/dynamic-form';
 
+import { TranslationFactory } from '../../factories';
+
 import { MaterialInputMeta } from '../../types';
 
 @Component({
@@ -26,9 +28,5 @@ export class DescriptionComponent implements DynamicFormDescriptionControl<Mater
   hideControl = () => this.visible = false;
 
   transform = (key: string | undefined): string =>
-    key === undefined
-      ? ''
-      : this.textTransformer === undefined
-        ? key
-        : this.textTransformer(key);
+    TranslationFactory.textTransformer(key, this.textTransformer);
 }
