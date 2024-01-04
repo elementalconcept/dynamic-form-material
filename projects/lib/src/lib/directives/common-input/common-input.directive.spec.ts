@@ -31,7 +31,7 @@ describe('CommonInputDirective', () => {
     'should set formControl',
     fakeAsync(() => {
       const directive = new CommonInputDirective();
-      const control = new UntypedFormControl('', [Validators.required]);
+      const control = new UntypedFormControl('', [ Validators.required ]);
 
       directive.formControl = control;
       tick(250);
@@ -43,13 +43,13 @@ describe('CommonInputDirective', () => {
     'should set formControl (1)',
     fakeAsync(() => {
       const directive = new CommonInputDirective();
-      const control = new UntypedFormControl('', [Validators.required]);
+      const control = new UntypedFormControl('', [ Validators.required ]);
       control.markAsDirty();
       control.markAsTouched();
 
       directive.formControl = control;
       tick(250);
-      expect(directive.errors).toEqual(['required']);
+      expect(directive.errors).toEqual([ 'required' ]);
     })
   );
 
@@ -61,7 +61,7 @@ describe('CommonInputDirective', () => {
         id: 'string',
         label: 'string',
         type: 'string',
-        validators: [{ type: 'required' }] as DynamicFormValidator[]
+        validators: [ { type: 'required' } ] as DynamicFormValidator[]
       };
 
       directive.dynamicFormElement = element;
@@ -86,7 +86,7 @@ describe('CommonInputDirective', () => {
         id: 'checkbox',
         label: 'checkbox',
         type: 'checkbox',
-        validators: [{ type: 'requiredTrue' }] as DynamicFormValidator[]
+        validators: [ { type: 'requiredTrue' } ] as DynamicFormValidator[]
       };
 
       directive.dynamicFormElement = element;

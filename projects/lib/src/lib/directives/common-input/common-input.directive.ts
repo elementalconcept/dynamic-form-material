@@ -69,6 +69,5 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
 
   hideControl = () => this.visible = false;
 
-  transform = (key: string | undefined): string =>
-    TranslationFactory.textTransformer(key, this.textTransformer);
+  transform = (key: string | undefined): string => TranslationFactory.textTransformer(key, this.textTransformer);
 }

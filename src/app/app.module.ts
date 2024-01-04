@@ -14,8 +14,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DYNAMIC_FORM_COMPONENT_MAP, DynamicFormComponent } from '@elemental-concept/dynamic-form';
 import { DynamicFormMaterialModule, materialComponentMap } from '@elemental-concept/dynamic-form-material';
 
-import { AppComponent } from './app.component';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { AppComponent } from './app.component';
 
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -23,7 +23,7 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +53,8 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
 
     {
-      provide: MAT_DATE_FORMATS, useValue: {
+      provide: MAT_DATE_FORMATS,
+      useValue: {
         parse: {
           dateInput: [ 'l', 'LL' ]
         },
@@ -66,7 +67,7 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       }
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }

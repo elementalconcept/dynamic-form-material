@@ -18,7 +18,7 @@ export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
       label: 'Date',
       meta: {
         color: 'primary'
-      },
+      }
     },
     {
       id: 'body',

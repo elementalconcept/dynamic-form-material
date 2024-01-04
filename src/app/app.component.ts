@@ -8,7 +8,7 @@ import { materialConfig, materialValue } from './types';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent {
   materialConfig = materialConfig;
@@ -17,9 +17,7 @@ export class AppComponent {
   materialStatus: string;
   materialFormValue = {};
 
-  onMaterialChanges = (data: DynamicFormComponentStatus<any>) =>
-    this.materialStatus = data.status;
+  onMaterialChanges = (data: DynamicFormComponentStatus<any>) => this.materialStatus = data.status;
 
-  onMaterialValueChanges = (data: DynamicFormComponentValue<any>) =>
-    this.materialFormValue = data.value;
+  onMaterialValueChanges = (data: DynamicFormComponentValue<any>) => this.materialFormValue = data.value;
 }
