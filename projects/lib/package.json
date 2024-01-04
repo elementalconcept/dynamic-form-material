@@ -1,6 +1,6 @@
 {
   "name": "@elemental-concept/dynamic-form-material",
-  "version": "16.1.0",
+  "version": "17.1.0",
   "description": "This library generates Angular `FormGroup` and related DOM from a specified JSON configuration.",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "@angular/common": ">= 13 < 18",
     "@angular/core": ">= 13 < 18",
     "@ngneat/until-destroy": "^9.2.3",
-    "@elemental-concept/dynamic-form": "^16.0.0"
+    "@elemental-concept/dynamic-form": "^17.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
