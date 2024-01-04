@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,19 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 import { DYNAMIC_FORM_COMPONENT_MAP, DynamicFormComponent } from '@elemental-concept/dynamic-form';
 import { DynamicFormMaterialModule, materialComponentMap } from '@elemental-concept/dynamic-form-material';
 
-import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { AppComponent } from './app.component';
-
-export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
-}
 
 @NgModule({
   declarations: [
@@ -31,18 +23,10 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ReactiveFormsModule,
     CommonModule,
 
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        deps: [ HttpClient ],
-        useFactory: httpLoaderFactory
-      }
-    }),
-
     DynamicFormMaterialModule,
+    DynamicFormComponent,
 
-    MatButtonModule,
-    DynamicFormComponent
+    MatButtonModule
   ],
   providers: [
     // Dynamic Form mapping object using Dynamic Form Material map
