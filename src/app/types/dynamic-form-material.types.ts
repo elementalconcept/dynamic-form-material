@@ -3,6 +3,7 @@ import { DynamicFormConfig } from '@elemental-concept/dynamic-form';
 import { MaterialInputMeta } from '@elemental-concept/dynamic-form-material';
 
 export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
+  textTransformer: message => `transform: ${message}`,
   elements: [
     {
       id: 'title',
@@ -17,7 +18,7 @@ export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
       label: 'Date',
       meta: {
         color: 'primary'
-      },
+      }
     },
     {
       id: 'body',

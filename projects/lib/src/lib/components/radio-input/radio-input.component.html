@@ -11,11 +11,11 @@
                      [color]="config.meta?.color">
 
       <mat-radio-button *ngFor="let option of config.options" [value]="option.value">
-        {{ option.label }}<span *ngIf="required && !config.meta?.hideRequiredMarker" class="required-mark">*</span>
+        {{ transform(option.label) }}<span *ngIf="required && !config.meta?.hideRequiredMarker" class="required-mark">*</span>
       </mat-radio-button>
 
     </mat-radio-group>
   </div>
 
-  <mat-error *ngFor="let error of errors">{{ config.errors[ error ] }}</mat-error>
+  <mat-error *ngFor="let error of errors">{{ transform(config.errors[ error ]) }}</mat-error>
 </div>

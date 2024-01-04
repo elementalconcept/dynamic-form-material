@@ -7,7 +7,7 @@ import { SuffixType } from '../../types';
 @Component({
   selector: 'df-string-input',
   templateUrl: './string-input.component.html',
-  styleUrls: ['./string-input.component.scss']
+  styleUrls: [ './string-input.component.scss' ]
 })
 export class StringInputComponent extends CommonInputDirective {
   SuffixType = SuffixType;

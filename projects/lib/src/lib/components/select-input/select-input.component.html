@@ -7,13 +7,13 @@
                 [ngClass]="config.meta?.cssClass"
                 [color]="config.meta?.color">
 
-  <mat-label>{{ config.label }}</mat-label>
+  <mat-label>{{ transform(config.label) }}</mat-label>
 
-  <mat-error *ngFor="let error of errors">{{ config.errors[ error ] }}</mat-error>
+  <mat-error *ngFor="let error of errors">{{ transform(config.errors[ error ]) }}</mat-error>
 
   <mat-select [required]="required" [formControlName]="config.id">
     <mat-option *ngFor="let option of config.options" [value]="option.value">
-      {{ option.label }}
+      {{ transform(option.label) }}
     </mat-option>
   </mat-select>
 
