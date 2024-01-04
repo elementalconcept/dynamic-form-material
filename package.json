@@ -9,7 +9,8 @@
     "test": "ng test",
     "publish": "npm run build && npm publish ./dist/lib --access=public",
     "format": "dprint fmt",
-    "format:check": "dprint check"
+    "format:check": "dprint check",
+    "prepare": "husky install"
   },
   "private": false,
   "dependencies": {
@@ -25,6 +26,7 @@
     "@angular/router": "^16.2.12",
     "@elemental-concept/dynamic-form": "^16.1.1",
     "@ngneat/until-destroy": "^9.2.3",
+    "husky": "^8.0.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.3"
