@@ -7,12 +7,12 @@
                 [ngClass]="config.meta?.cssClass"
                 [color]="config.meta?.color">
 
-  <mat-label>{{ config.label }}</mat-label>
+  <mat-label>{{ transform(config.label) }}</mat-label>
 
   <input matInput [matDatepicker]="picker" [required]="required" [formControlName]="config.id">
   <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 
-  <mat-error *ngFor="let error of errors">{{ config.errors[ error ] }}</mat-error>
+  <mat-error *ngFor="let error of errors">{{ transform(config.errors[ error ]) }}</mat-error>
 
 </mat-form-field>

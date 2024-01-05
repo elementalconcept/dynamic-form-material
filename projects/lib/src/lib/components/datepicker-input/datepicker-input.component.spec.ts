@@ -11,11 +11,11 @@ describe('RadioInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DatepickerInputComponent],
+      declarations: [ DatepickerInputComponent ],
       imports: [
         DynamicFormModule
       ],
-      schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
+      schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ]
     })
       .compileComponents();
   });
@@ -26,7 +26,7 @@ describe('RadioInputComponent', () => {
     component.config = {
       id: 'simpleDatepicker',
       type: 'simpleDatepicker',
-      label: 'simpleDatepicker',
+      label: 'simpleDatepicker'
     };
 
     fixture.detectChanges();
