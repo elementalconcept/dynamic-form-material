@@ -7,11 +7,11 @@
                 [ngClass]="config.meta?.cssClass"
                 [color]="config.meta?.color">
 
-  <mat-label>{{ config.label }}</mat-label>
+  <mat-label>{{ transform(config.label) }}</mat-label>
 
   <input [attr.type]="inputType"
          [attr.inputmode]="inputMode"
-         [placeholder]="config.placeholder"
+         [placeholder]="transform(config.placeholder)"
          [required]="required"
          [formControlName]="config.id"
          matInput>
@@ -24,6 +24,6 @@
     <mat-icon>{{ inputType === 'password' ? 'visibility' : 'visibility_off' }}</mat-icon>
   </button>
 
-  <mat-error *ngFor="let error of errors">{{ config.errors[ error ] }}</mat-error>
+  <mat-error *ngFor="let error of errors">{{ transform(config.errors[ error ]) }}</mat-error>
 
 </mat-form-field>

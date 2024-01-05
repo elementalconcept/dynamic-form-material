@@ -46,7 +46,7 @@ import { AppComponent } from './app.component';
   providers: [
     { provide: DYNAMIC_FORM_COMPONENT_MAP, useValue: materialComponentMap }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }
@@ -75,12 +75,11 @@ If you are planning to use datepickers, then you'll need to add more configs int
     MatSelectModule
   ],
   providers: [
-    ...
-
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    ...{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
 
     {
-      provide: MAT_DATE_FORMATS, useValue: {
+      provide: MAT_DATE_FORMATS,
+      useValue: {
         parse: {
           dateInput: [ 'l', 'LL' ]
         },
@@ -93,7 +92,7 @@ If you are planning to use datepickers, then you'll need to add more configs int
       }
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }

@@ -7,6 +7,8 @@ import { map, startWith } from 'rxjs/operators';
 
 import { DynamicFormElement, DynamicFormPassThroughControl } from '@elemental-concept/dynamic-form';
 
+import { TranslationFactory } from '../../factories';
+
 import { inputModeMap, MaterialInputMeta } from '../../types';
 
 @UntilDestroy()
@@ -27,6 +29,8 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
   required = false;
 
   errors: string[] = [];
+
+  textTransformer?: (message: string) => string;
 
   set formControl(control: AbstractControl) {
     control.statusChanges
@@ -64,4 +68,6 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
   showControl = () => this.visible = true;
 
   hideControl = () => this.visible = false;
+
+  transform = (key: string | undefined): string => TranslationFactory.textTransformer(key, this.textTransformer);
 }

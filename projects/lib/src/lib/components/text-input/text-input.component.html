@@ -7,9 +7,9 @@
                 [ngClass]="config.meta?.cssClass"
                 [color]="config.meta?.color">
 
-  <mat-label>{{ config.label }}</mat-label>
+  <mat-label>{{ transform(config.label) }}</mat-label>
 
-  <mat-error *ngFor="let error of errors">{{ config.errors[ error ] }}</mat-error>
+  <mat-error *ngFor="let error of errors">{{ transform(config.errors[ error ]) }}</mat-error>
 
   <textarea [attr.type]="inputType"
             [attr.inputmode]="inputMode"
