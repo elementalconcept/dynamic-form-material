@@ -11,10 +11,16 @@
 
   <mat-error *ngFor="let error of errors">{{ transform(config.errors[ error ]) }}</mat-error>
 
-  <mat-select [required]="required" [formControlName]="config.id">
+  <mat-select *ngIf="!config.meta?.nativeSelect" [required]="required" [formControlName]="config.id">
     <mat-option *ngFor="let option of config.options" [value]="option.value">
       {{ transform(option.label) }}
     </mat-option>
   </mat-select>
+
+  <select *ngIf="config.meta?.nativeSelect" [required]="required" [formControlName]="config.id" matNativeControl>
+    <option *ngFor="let option of config.options" [value]="option.value">
+      {{ transform(option.label) }}
+    </option>
+  </select>
 
 </mat-form-field>

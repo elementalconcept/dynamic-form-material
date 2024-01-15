@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, Renderer2 } from '@angular/core';
 import { AbstractControl, UntypedFormGroup } from '@angular/forms';
 
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -32,6 +32,9 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
 
   textTransformer?: (message: string) => string;
 
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
+  }
+
   set formControl(control: AbstractControl) {
     control.statusChanges
       .pipe(
@@ -48,6 +51,8 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
 
   set dynamicFormElement(element: DynamicFormElement<MaterialInputMeta>) {
     this.config = { ...element };
+
+    this.renderer.addClass(this.elementRef.nativeElement, `df-form-field-${element.id}`);
 
     if (this.config.errors === undefined) {
       this.config.errors = {};
