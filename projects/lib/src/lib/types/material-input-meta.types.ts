@@ -14,6 +14,7 @@ export interface MaterialInputMeta {
   externalLink?: ExternalLinkMeta | null;
   htmlDescription?: string;
   hideRequiredMarker?: boolean;
+  disableOnHide?: boolean;
   nativeSelect?: boolean;
   sectionTitle?: boolean; // define an `<h5>` element instead of a `<div>` for the `description`
 }
