@@ -32,21 +32,9 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
 
   textTransformer?: (message: string) => string;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
-  }
+  protected control!: AbstractControl;
 
-  set formControl(control: AbstractControl) {
-    control.statusChanges
-      .pipe(
-        startWith(control.status),
-        untilDestroyed(this),
-        map(status =>
-          status === 'INVALID' && !control.pristine
-            ? Object.keys(control.errors ?? [])
-            : []
-        )
-      )
-      .subscribe(errors => this.errors = errors);
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
   }
 
   set dynamicFormElement(element: DynamicFormElement<MaterialInputMeta>) {
@@ -70,9 +58,43 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
       : false;
   }
 
-  showControl = () => this.visible = true;
+  set formControl(control: AbstractControl) {
+    this.control = control;
 
-  hideControl = () => this.visible = false;
+    this.control.statusChanges
+      .pipe(
+        startWith(this.control.status),
+        untilDestroyed(this),
+        map(status =>
+          status === 'INVALID' && !this.control.pristine
+            ? Object.keys(this.control.errors ?? [])
+            : []
+        )
+      )
+      .subscribe(errors => this.errors = errors);
+  }
+
+  showControl = () => {
+    this.visible = true;
+
+    if (this.config?.meta?.disableOnHide) {
+      // this to prevent infinite loop on status change
+      if (this.control.disabled) {
+        this.control.enable({ emitEvent: false, onlySelf: false });
+      }
+    }
+  };
+
+  hideControl = () => {
+    this.visible = false;
+
+    if (this.config?.meta?.disableOnHide) {
+      // this to prevent infinite loop on status change
+      if (this.control.enabled) {
+        this.control.disable({ emitEvent: false, onlySelf: false });
+      }
+    }
+  };
 
   transform = (key: string | undefined): string => TranslationFactory.textTransformer(key, this.textTransformer);
 }
