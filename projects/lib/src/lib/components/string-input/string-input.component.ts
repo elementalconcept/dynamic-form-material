@@ -9,7 +9,7 @@ import { SuffixType } from '../../types';
   templateUrl: './string-input.component.html',
   styleUrls: ['./string-input.component.scss']
 })
-export class StringInputComponent extends CommonInputDirective {
+export class StringInputComponent extends CommonInputDirective<string> {
   SuffixType = SuffixType;
 
   onPasswordToggle = (e: Event) => {

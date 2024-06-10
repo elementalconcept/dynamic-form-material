@@ -7,5 +7,5 @@ import { CommonInputDirective } from '../../directives';
   templateUrl: './multi-select-input.component.html',
   styleUrls: ['./multi-select-input.component.scss']
 })
-export class MultiSelectInputComponent extends CommonInputDirective {
+export class MultiSelectInputComponent extends CommonInputDirective<string | number> {
 }
