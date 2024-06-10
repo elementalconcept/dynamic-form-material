@@ -13,7 +13,7 @@ import {
   TextInputComponent
 } from './components';
 
-export const materialComponentMap: DynamicFormComponentMap<MaterialInputMeta> = {
+export const materialComponentMap: DynamicFormComponentMap<MaterialInputMeta, string | number | boolean> = {
   string: StringInputComponent,
   number: StringInputComponent,
   email: StringInputComponent,

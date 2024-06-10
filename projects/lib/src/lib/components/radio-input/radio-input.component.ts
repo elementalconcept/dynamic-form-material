@@ -7,5 +7,5 @@ import { CommonInputDirective } from '../../directives';
   templateUrl: './radio-input.component.html',
   styleUrls: ['./radio-input.component.scss']
 })
-export class RadioInputComponent extends CommonInputDirective {
+export class RadioInputComponent extends CommonInputDirective<boolean> {
 }

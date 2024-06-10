@@ -10,12 +10,12 @@ import { MaterialInputMeta } from '../../types';
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.scss']
 })
-export class DescriptionComponent implements DynamicFormDescriptionControl<MaterialInputMeta> {
+export class DescriptionComponent implements DynamicFormDescriptionControl<MaterialInputMeta, string> {
   readonly type = 'description';
 
   formControl: AbstractControl; // not used, but needed when compiling
 
-  dynamicFormElement: DynamicFormElement<MaterialInputMeta>;
+  dynamicFormElement: DynamicFormElement<MaterialInputMeta, string>;
 
   visible = true;
 

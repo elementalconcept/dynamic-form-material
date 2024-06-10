@@ -7,5 +7,5 @@ import { CommonInputDirective } from '../../directives';
   templateUrl: './datepicker-input.component.html',
   styleUrls: ['./datepicker-input.component.scss']
 })
-export class DatepickerInputComponent extends CommonInputDirective {
+export class DatepickerInputComponent extends CommonInputDirective<string> {
 }
