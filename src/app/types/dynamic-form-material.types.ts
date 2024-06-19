@@ -2,7 +2,25 @@ import { DynamicFormConfig } from '@elemental-concept/dynamic-form';
 
 import { MaterialInputMeta } from '@elemental-concept/dynamic-form-material';
 
-export const materialConfig: DynamicFormConfig<MaterialInputMeta> = {
+export interface MaterialFormValue {
+  title: string;
+  datepicker: string;
+  body: string;
+  number: string;
+  email: string;
+  tel: string;
+  url: string;
+  password: string;
+  confirmPassword: string;
+  description1: string;
+  checkbox: boolean;
+  radio1: string;
+  radio2: string;
+  select1: string;
+  select2: string;
+}
+
+export const materialConfig: DynamicFormConfig<MaterialInputMeta, MaterialFormValue> = {
   textTransformer: message => `transform: ${message}`,
   elements: [
     {

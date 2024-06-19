@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { DynamicFormComponentStatus, DynamicFormComponentValue } from '@elemental-concept/dynamic-form';
 import { materialComponentMap } from '@elemental-concept/dynamic-form-material';
 
-import { materialConfig, materialValue } from './types';
+import { materialConfig, MaterialFormValue, materialValue } from './types';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ export class AppComponent {
   materialStatus: string;
   materialFormValue = {};
 
-  onMaterialChanges = (data: DynamicFormComponentStatus<any>) => this.materialStatus = data.status;
+  onMaterialChanges = (data: DynamicFormComponentStatus<MaterialFormValue>) => this.materialStatus = data.status;
 
-  onMaterialValueChanges = (data: DynamicFormComponentValue<any>) => this.materialFormValue = data.value;
+  onMaterialValueChanges = (data: DynamicFormComponentValue<MaterialFormValue>) => this.materialFormValue = data.value;
 }
