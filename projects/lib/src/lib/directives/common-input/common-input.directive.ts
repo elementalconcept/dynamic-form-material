@@ -13,12 +13,12 @@ import { inputModeMap, MaterialInputMeta } from '../../types';
 
 @UntilDestroy()
 @Directive()
-export class CommonInputDirective implements DynamicFormPassThroughControl<MaterialInputMeta> {
+export class CommonInputDirective implements DynamicFormPassThroughControl<MaterialInputMeta, any> {
   readonly type = 'passthrough';
 
   formGroup: UntypedFormGroup;
 
-  config: DynamicFormElement<MaterialInputMeta>;
+  config: DynamicFormElement<MaterialInputMeta, any>;
 
   visible = true;
 
@@ -37,7 +37,7 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
   constructor(private elementRef: ElementRef, private renderer: Renderer2) {
   }
 
-  set dynamicFormElement(element: DynamicFormElement<MaterialInputMeta>) {
+  set dynamicFormElement(element: DynamicFormElement<MaterialInputMeta, any>) {
     this.config = { ...element };
 
     this.renderer.addClass(this.elementRef.nativeElement, `df-form-field-${element.id}`);
