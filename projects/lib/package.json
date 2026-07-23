@@ -19,10 +19,10 @@
   },
   "homepage": "https://github.com/elementalconcept/dynamic-form-material#readme",
   "peerDependencies": {
-    "@angular/common": ">= 13 < 18",
-    "@angular/core": ">= 13 < 18",
+    "@angular/common": "^18",
+    "@angular/core": "^18",
     "@ngneat/until-destroy": "^9.2.3",
-    "@elemental-concept/dynamic-form": "^17.1.0"
+    "@elemental-concept/dynamic-form": "^18.0.1"
   },
   "dependencies": {
     "tslib": "^2.3.0"
