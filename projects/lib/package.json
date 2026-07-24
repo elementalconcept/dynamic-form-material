@@ -19,8 +19,10 @@
   },
   "homepage": "https://github.com/elementalconcept/dynamic-form-material#readme",
   "peerDependencies": {
+    "@angular/cdk": "^19",
     "@angular/common": "^19",
     "@angular/core": "^19",
+    "@angular/material": "^19",
     "@elemental-concept/dynamic-form": "^19.0.2"
   },
   "dependencies": {
