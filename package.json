@@ -7,7 +7,7 @@
     "build": "ng build lib --configuration production",
     "watch": "ng build lib --watch",
     "test": "ng test",
-    "publish": "npm run build && npm publish ./dist/lib --access=public",
+    "publish": "npm publish ./dist/lib --access=public",
     "format": "dprint fmt",
     "format:check": "dprint check",
     "prepare": "husky install"
