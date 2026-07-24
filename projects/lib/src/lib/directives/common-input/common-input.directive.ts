@@ -1,17 +1,15 @@
-import { Directive, ElementRef, Renderer2 } from '@angular/core';
+import { DestroyRef, Directive, ElementRef, Renderer2 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AbstractControl, UntypedFormGroup } from '@angular/forms';
 
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { DynamicFormElement, DynamicFormPassThroughControl } from '@elemental-concept/dynamic-form';
 
 import { map, startWith } from 'rxjs/operators';
-
-import { DynamicFormElement, DynamicFormPassThroughControl } from '@elemental-concept/dynamic-form';
 
 import { TranslationFactory } from '../../factories';
 
 import { inputModeMap, MaterialInputMeta } from '../../types';
 
-@UntilDestroy()
 @Directive()
 export class CommonInputDirective implements DynamicFormPassThroughControl<MaterialInputMeta, any> {
   readonly type = 'passthrough';
@@ -34,7 +32,7 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
 
   protected control!: AbstractControl;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
+  constructor(private elementRef: ElementRef, private renderer: Renderer2, private readonly destroyRef: DestroyRef) {
   }
 
   set dynamicFormElement(element: DynamicFormElement<MaterialInputMeta, any>) {
@@ -64,7 +62,7 @@ export class CommonInputDirective implements DynamicFormPassThroughControl<Mater
     this.control.statusChanges
       .pipe(
         startWith(this.control.status),
-        untilDestroyed(this),
+        takeUntilDestroyed(this.destroyRef),
         map(status =>
           status === 'INVALID' && !this.control.pristine
             ? Object.keys(this.control.errors ?? [])
