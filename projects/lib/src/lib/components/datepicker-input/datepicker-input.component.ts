@@ -5,7 +5,8 @@ import { CommonInputDirective } from '../../directives';
 @Component({
   selector: 'df-datepicker-input',
   templateUrl: './datepicker-input.component.html',
-  styleUrls: [ './datepicker-input.component.scss' ]
+  styleUrls: [ './datepicker-input.component.scss' ],
+  standalone: false
 })
 export class DatepickerInputComponent extends CommonInputDirective {
 }

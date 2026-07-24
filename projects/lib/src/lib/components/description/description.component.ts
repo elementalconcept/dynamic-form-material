@@ -10,7 +10,8 @@ import { MaterialInputMeta } from '../../types';
 @Component({
   selector: 'df-description',
   templateUrl: './description.component.html',
-  styleUrls: [ './description.component.scss' ]
+  styleUrls: [ './description.component.scss' ],
+  standalone: false
 })
 export class DescriptionComponent implements DynamicFormDescriptionControl<MaterialInputMeta, string> {
   readonly type = 'description';
