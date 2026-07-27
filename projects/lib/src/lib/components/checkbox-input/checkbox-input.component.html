@@ -1,21 +1,24 @@
-<div *ngIf="visible && config && formGroup"
-     [formGroup]="formGroup"
-     [ngClass]="config.meta?.cssClass">
-
-  <mat-checkbox [formControlName]="config.id"
-                [labelPosition]="config.meta?.labelPosition"
-                [color]="config.meta?.color">
-
-    {{ transform(config.label) }}<span *ngIf="required && !config.meta?.hideRequiredMarker" class="required-mark">*</span>
-
-    <a *ngIf="config.meta?.externalLink"
-       [href]="config.meta?.externalLink.url"
-       (click)="openExternalLink($event)"
-       target="_blank">
-      {{ transform(config.meta?.externalLink.label) }}
-    </a>
-
+@if (visible && config && formGroup) {
+  <div
+    [formGroup]="formGroup"
+    [ngClass]="config.meta?.cssClass">
+    <mat-checkbox [formControlName]="config.id"
+      [labelPosition]="config.meta?.labelPosition"
+      [color]="config.meta?.color">
+      {{ transform(config.label) }}@if (required && !config.meta?.hideRequiredMarker) {
+      <span class="required-mark">*</span>
+    }
+    @if (config.meta?.externalLink) {
+      <a
+        [href]="config.meta?.externalLink.url"
+        (click)="openExternalLink($event)"
+        target="_blank">
+        {{ transform(config.meta?.externalLink.label) }}
+      </a>
+    }
   </mat-checkbox>
-
-  <mat-error *ngFor="let error of errors">{{ transform(config.errors[ error ]) }}</mat-error>
+  @for (error of errors; track error) {
+    <mat-error>{{ transform(config.errors[ error ]) }}</mat-error>
+  }
 </div>
+}

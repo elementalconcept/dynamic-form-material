@@ -1,26 +1,33 @@
-<mat-form-field *ngIf="visible && config && formGroup"
-                [formGroup]="formGroup"
-                [floatLabel]="config.meta?.floatLabel"
-                [appearance]="config.meta?.appearance"
-                [hintLabel]="config.meta?.hintLabel"
-                [hideRequiredMarker]="config.meta?.hideRequiredMarker"
-                [ngClass]="config.meta?.cssClass"
-                [color]="config.meta?.color">
-
-  <mat-label>{{ transform(config.label) }}</mat-label>
-
-  <mat-error *ngFor="let error of errors">{{ transform(config.errors[ error ]) }}</mat-error>
-
-  <mat-select *ngIf="!config.meta?.nativeSelect" [required]="required" [formControlName]="config.id">
-    <mat-option *ngFor="let option of config.options" [value]="option.value">
-      {{ transform(option.label) }}
-    </mat-option>
-  </mat-select>
-
-  <select *ngIf="config.meta?.nativeSelect" [required]="required" [formControlName]="config.id" matNativeControl>
-    <option *ngFor="let option of config.options" [value]="option.value">
-      {{ transform(option.label) }}
-    </option>
-  </select>
-
-</mat-form-field>
+@if (visible && config && formGroup) {
+  <mat-form-field
+    [formGroup]="formGroup"
+    [floatLabel]="config.meta?.floatLabel"
+    [appearance]="config.meta?.appearance"
+    [hintLabel]="config.meta?.hintLabel"
+    [hideRequiredMarker]="config.meta?.hideRequiredMarker"
+    [ngClass]="config.meta?.cssClass"
+    [color]="config.meta?.color">
+    <mat-label>{{ transform(config.label) }}</mat-label>
+    @for (error of errors; track error) {
+      <mat-error>{{ transform(config.errors[ error ]) }}</mat-error>
+    }
+    @if (!config.meta?.nativeSelect) {
+      <mat-select [required]="required" [formControlName]="config.id">
+        @for (option of config.options; track option) {
+          <mat-option [value]="option.value">
+            {{ transform(option.label) }}
+          </mat-option>
+        }
+      </mat-select>
+    }
+    @if (config.meta?.nativeSelect) {
+      <select [required]="required" [formControlName]="config.id" matNativeControl>
+        @for (option of config.options; track option) {
+          <option [value]="option.value">
+            {{ transform(option.label) }}
+          </option>
+        }
+      </select>
+    }
+  </mat-form-field>
+}
