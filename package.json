@@ -24,7 +24,7 @@
     "@angular/platform-browser": "^19.2.25",
     "@angular/platform-browser-dynamic": "^19.2.25",
     "@angular/router": "^19.2.25",
-    "@elemental-concept/dynamic-form": "^19.0.2",
+    "@elemental-concept/dynamic-form": "^20.0.0",
     "husky": "^8.0.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
