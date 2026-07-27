@@ -1,32 +1,33 @@
-<mat-form-field *ngIf="visible && config && formGroup"
-                [formGroup]="formGroup"
-                [floatLabel]="config.meta?.floatLabel"
-                [appearance]="config.meta?.appearance"
-                [hintLabel]="config.meta?.hintLabel"
-                [hideRequiredMarker]="config.meta?.hideRequiredMarker"
-                [ngClass]="config.meta?.cssClass"
-                [color]="config.meta?.color">
-
-  <mat-label>{{ transform(config.label) }}</mat-label>
-
-  <mat-error *ngFor="let error of errors">{{ transform(config.errors[ error ]) }}</mat-error>
-
-  <mat-select [required]="required"
-              [formControlName]="config.id"
-              multiple>
-
-    <mat-select-trigger>
-      {{ formGroup.value[ config.id ] ? formGroup.value[ config.id ][ 0 ] : '' }}
-      <span *ngIf="formGroup.value[config.id]?.length > 1" class="additional-selection">
-        (+{{ formGroup.value[ config.id ].length - 1 }}
-        {{ formGroup.value[ config.id ]?.length === 2 ? 'other' : 'others' }})
-      </span>
-    </mat-select-trigger>
-
-    <mat-option *ngFor="let option of config.options" [value]="option.value">
-      {{ transform(option.label) }}
-    </mat-option>
-
-  </mat-select>
-
-</mat-form-field>
+@if (visible && config && formGroup) {
+  <mat-form-field
+    [formGroup]="formGroup"
+    [floatLabel]="config.meta?.floatLabel"
+    [appearance]="config.meta?.appearance"
+    [hintLabel]="config.meta?.hintLabel"
+    [hideRequiredMarker]="config.meta?.hideRequiredMarker"
+    [ngClass]="config.meta?.cssClass"
+    [color]="config.meta?.color">
+    <mat-label>{{ transform(config.label) }}</mat-label>
+    @for (error of errors; track error) {
+      <mat-error>{{ transform(config.errors[ error ]) }}</mat-error>
+    }
+    <mat-select [required]="required"
+      [formControlName]="config.id"
+      multiple>
+      <mat-select-trigger>
+        {{ formGroup.value[ config.id ] ? formGroup.value[ config.id ][ 0 ] : '' }}
+        @if (formGroup.value[config.id]?.length > 1) {
+          <span class="additional-selection">
+            (+{{ formGroup.value[ config.id ].length - 1 }}
+            {{ formGroup.value[ config.id ]?.length === 2 ? 'other' : 'others' }})
+          </span>
+        }
+      </mat-select-trigger>
+      @for (option of config.options; track option) {
+        <mat-option [value]="option.value">
+          {{ transform(option.label) }}
+        </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+}

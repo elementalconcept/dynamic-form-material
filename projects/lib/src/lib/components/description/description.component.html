@@ -1,7 +1,11 @@
-<div *ngIf="visible && !dynamicFormElement?.meta?.sectionTitle"
-     [innerHTML]="transform(dynamicFormElement?.meta?.htmlDescription)">
-</div>
+@if (visible && !dynamicFormElement?.meta?.sectionTitle) {
+  <div
+    [innerHTML]="transform(dynamicFormElement?.meta?.htmlDescription)">
+  </div>
+}
 
-<h5 *ngIf="visible && dynamicFormElement?.meta?.sectionTitle === true" class="section-title">
-  {{ transform(dynamicFormElement?.label) }}
-</h5>
+@if (visible && dynamicFormElement?.meta?.sectionTitle === true) {
+  <h5 class="section-title">
+    {{ transform(dynamicFormElement?.label) }}
+  </h5>
+}

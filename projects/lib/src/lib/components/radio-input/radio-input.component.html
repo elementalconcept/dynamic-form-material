@@ -1,21 +1,27 @@
-<mat-label *ngIf="visible && config && config.label">{{ config.label }}</mat-label>
+@if (visible && config && config.label) {
+  <mat-label>{{ config.label }}</mat-label>
+}
 
-<div *ngIf="visible && config && formGroup"
-     [formGroup]="formGroup"
-     [ngClass]="config.meta?.cssClass">
-
-  <div class="radio-wrapper">
-    <mat-radio-group [formControlName]="config.id"
-                     [required]="required"
-                     [labelPosition]="config.meta?.labelPosition"
-                     [color]="config.meta?.color">
-
-      <mat-radio-button *ngFor="let option of config.options" [value]="option.value">
-        {{ transform(option.label) }}<span *ngIf="required && !config.meta?.hideRequiredMarker" class="required-mark">*</span>
-      </mat-radio-button>
-
+@if (visible && config && formGroup) {
+  <div
+    [formGroup]="formGroup"
+    [ngClass]="config.meta?.cssClass">
+    <div class="radio-wrapper">
+      <mat-radio-group [formControlName]="config.id"
+        [required]="required"
+        [labelPosition]="config.meta?.labelPosition"
+        [color]="config.meta?.color">
+        @for (option of config.options; track option) {
+          <mat-radio-button [value]="option.value">
+            {{ transform(option.label) }}@if (required && !config.meta?.hideRequiredMarker) {
+            <span class="required-mark">*</span>
+          }
+        </mat-radio-button>
+      }
     </mat-radio-group>
   </div>
-
-  <mat-error *ngFor="let error of errors">{{ transform(config.errors[ error ]) }}</mat-error>
+  @for (error of errors; track error) {
+    <mat-error>{{ transform(config.errors[ error ]) }}</mat-error>
+  }
 </div>
+}
