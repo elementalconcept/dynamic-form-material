@@ -1,8 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DynamicFormModule } from '@elemental-concept/dynamic-form';
-
 import { MultiSelectInputComponent } from './multi-select-input.component';
 
 describe('MultiSelectInputComponent', () => {
@@ -12,9 +10,7 @@ describe('MultiSelectInputComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ MultiSelectInputComponent ],
-      imports: [
-        DynamicFormModule
-      ],
+      imports: [],
       schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ]
     })
       .compileComponents();

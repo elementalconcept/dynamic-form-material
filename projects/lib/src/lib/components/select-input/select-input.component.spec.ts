@@ -1,8 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DynamicFormModule } from '@elemental-concept/dynamic-form';
-
 import { SelectInputComponent } from './select-input.component';
 
 describe('SelectInputComponent', () => {
@@ -12,9 +10,7 @@ describe('SelectInputComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SelectInputComponent ],
-      imports: [
-        DynamicFormModule
-      ],
+      imports: [],
       schemas: [ NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA ]
     })
       .compileComponents();
